@@ -15,9 +15,16 @@ function getUser(){
     }
 }
 
+const login = (password) => {
+  if (password !== "1234") throw new Error("Invalid password");
+  return { jwt: "GY@(YE(*@Y(!E*(&^!^E*&!^@E" };
+}
+
+
 module.exports = {
   gte,
   welcomeMessage,
   shoppingList,
-  getUser
+  getUser,
+  login
 };

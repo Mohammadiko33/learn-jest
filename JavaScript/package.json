@@ -4,7 +4,7 @@
   "description": "Jest یک فریم‌ورک تست (Testing Framework) برای جاوااسکریپت است که توسط شرکت **Facebook** توسعه یافته است. این ابزار برای تست برنامه‌های **React** و **Node.js** بسیار محبوب است. هدف Jest این است که توسعه‌دهندگان بتوانند کدهای خود را به‌صورت **خودکار و قابل اعتماد** تست کنند.",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --watchAll"
   },
   "repository": {
     "type": "git",
