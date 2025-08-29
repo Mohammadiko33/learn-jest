@@ -1,12 +1,21 @@
-const { getUserById, sendEmail } = require("./service");
+class Calculator{
+  constructor(a,b){
+    this.a = a
+    this.b = b
+  }
 
-function calculateDiscount(id) {
-  let discount = 0;
-  const { purchasesCount, name } = getUserById(id);
-  if (purchasesCount > 3) return 10;
-
-  sendEmail(name, `you have got %${discount} percent discount`);
-  return discount;
+  add(){
+    return this.a + this.b
+  }
+  sub(){
+    return this.a - this.b
+  }
+  div(){
+    return this.a / this.b
+  }
+  mul(){
+    return this.a * this.b
+  }
 }
 
-module.exports = { calculateDiscount };
+module.exports =  Calculator

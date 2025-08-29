@@ -1,26 +1,30 @@
-const { getUserById, sendEmail } = require("../service");
-const { calculateDiscount } = require("../app");
+const Calculator = require("./../app")
 
-jest.mock("../service");
-
-describe("calculate discount", () => {
+describe("Calculator class", () => {
+  let calculator;
+  
   beforeEach(() => {
-    jest.clearAllMocks();
+    calculator = new Calculator(10, 5);
   });
 
-  it("should return 10 if user has more than 3 purchases", () => {
-    getUserById.mockReturnValue({ id: 4, name: "john", purchasesCount: 7 });
-    expect(calculateDiscount(4)).toBe(10);
+  it("should have a and b property", () => {
+    expect(calculator).toHaveProperty("a");
+    expect(calculator).toHaveProperty("b");
   });
 
-  it("should return 0 and send email if user has 3 or fewer purchases", () => {
-    getUserById.mockReturnValue({ id: 4, name: "john", purchasesCount: 2 });
+  it("add", () => {
+    expect(calculator.add()).toBe(15); // 10 + 5
+  });
 
-    const result = calculateDiscount(4);
+  it("sub", () => {
+    expect(calculator.sub()).toBe(5); // 10 - 5
+  });
 
-    expect(result).toBe(0);
-    expect(sendEmail).toHaveBeenCalled();
-    expect(sendEmail.mock.calls[0][0]).toBe("john");
-    expect(sendEmail.mock.calls[0][1]).toContain("0 percent");
+  it("mul", () => {
+    expect(calculator.mul()).toBe(50); // 10 * 5
+  });
+
+  it("div", () => {
+    expect(calculator.div()).toBe(2); // 10 / 5
   });
 });
