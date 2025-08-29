@@ -148,3 +148,119 @@ Jest باعث می‌شود توسعه‌دهندگان:
 > دیتابیس و منابع خارجی → اینترگریشن تست
 
 > مسیر کامل کاربر → اند تو اند تست
+
+---
+
+حتماً! اول یک توضیح ساده درباره‌ی تستی که نوشتی می‌دهم و بعد متدهای آخر را با مثال کوتاه و ساده شرح می‌دهم.
+
+---
+
+
+```javascript
+const gte = require("../app")
+```
+
+این خط تابع `gte` را از فایل `app.js` وارد می‌کند.
+
+```javascript
+test("gte - should return true if a is grater than b", () => {
+    const res = gte(10,9);
+    expect(9).toBe(8);
+});
+```
+
+* `test` یک تست جدید تعریف می‌کند.
+* `expect` برای **مقایسه نتیجه واقعی با مقدار مورد انتظار** استفاده می‌شود.
+* نکته: در اینجا مقادیر `expect(9).toBe(8)` و `expect(6).toBe(7)` اشتباه هستند، چون همیشه **این تست‌ها شکست می‌خورند**. درستش باید مثل این باشد:
+
+```javascript
+expect(res).toBe(true);  // وقتی 10 >= 9
+```
+
+---
+
+## **متدهای Jest و مثال ساده**
+
+### 1. `.toBeNull()`
+
+چک می‌کند مقدار **null** باشد.
+
+```javascript
+expect(null).toBeNull();
+```
+
+### 2. `.toBeUndefined()`
+
+چک می‌کند مقدار **undefined** باشد.
+
+```javascript
+let a;
+expect(a).toBeUndefined();
+```
+
+### 3. `.toBeDefined()`
+
+چک می‌کند مقدار **تعریف شده** باشد (نه undefined).
+
+```javascript
+let a = 5;
+expect(a).toBeDefined();
+```
+
+### 4. `.toBeTruthy()`
+
+چک می‌کند مقدار **در شرط if درست** باشد.
+
+```javascript
+expect(true).toBeTruthy();
+expect(1).toBeTruthy();
+```
+
+### 5. `.toBeFalsy()`
+
+چک می‌کند مقدار **در شرط if غلط** باشد.
+
+```javascript
+expect(false).toBeFalsy();
+expect(0).toBeFalsy();
+```
+
+### 6. `.toBeGreaterThan(number)`
+
+چک می‌کند مقدار بزرگ‌تر از عدد داده شده باشد.
+
+```javascript
+expect(10).toBeGreaterThan(5);
+```
+
+### 7. `.toBeGreaterThanOrEqual(number)`
+
+چک می‌کند مقدار **بزرگ‌تر یا مساوی** عدد باشد.
+
+```javascript
+expect(10).toBeGreaterThanOrEqual(10);
+```
+
+### 8. `.toBeLessThan(number)`
+
+چک می‌کند مقدار کوچک‌تر از عدد باشد.
+
+```javascript
+expect(5).toBeLessThan(10);
+```
+
+### 9. `.toBeLessThanOrEqual(number)`
+
+چک می‌کند مقدار **کمتر یا مساوی** عدد باشد.
+
+```javascript
+expect(5).toBeLessThanOrEqual(5);
+```
+
+### 10. `.toBeCloseTo(number, numDigits?)`
+
+چک می‌کند مقدار **تقریباً برابر** عدد باشد (برای اعداد اعشاری).
+
+```javascript
+expect(0.1 + 0.2).toBeCloseTo(0.3);
+```
