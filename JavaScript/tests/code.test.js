@@ -1,4 +1,4 @@
-const { gte, welcomeMessage, shoppingList } = require("../app");
+const { gte, welcomeMessage, shoppingList, getUser } = require("../app");
 
 describe("gte", () => {
   it("should return true if a is greater than b", () => {
@@ -12,16 +12,23 @@ describe("gte", () => {
   });
 });
 
-describe("welcome message" , () => {
-    it('should return a welcome message containing the name' , () => {
-        const res = welcomeMessage("Mohammad")
-        expect(res).toContain("Mohammad")
-    })
-})
+describe("welcome message", () => {
+  it("should return a welcome message containing the name", () => {
+    const res = welcomeMessage("Mohammad");
+    expect(res).toContain("Mohammad");
+  });
+});
 
-describe("shopping List" , () => {
-    it("should " , () => {
-        const result = shoppingList();
-        expect(result).toContain("cupcake")
-    })
-})
+describe("shopping List", () => {
+  it("array coffe shop ", () => {
+    const result = shoppingList();
+    expect(result).toContain("cupcake");
+  });
+});
+
+describe("get user", () => {
+  it("shoud username: mohammad", () => {
+    const res = getUser();
+    expect(res).toHaveProperty("id" ,"mohammad")
+  });
+});

@@ -8,8 +8,16 @@ function shoppingList() {
   return ["diseart", "cake", "cupcake"];
 }
 
+function getUser(){
+    return {
+        id: 1,
+        name: "mohammad"
+    }
+}
+
 module.exports = {
   gte,
   welcomeMessage,
   shoppingList,
+  getUser
 };
